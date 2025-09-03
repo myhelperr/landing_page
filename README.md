@@ -1,5 +1,66 @@
-# landing_page
-Code repository for Helperr landing page
+# Helperr Landing Page
+
+A modern, responsive landing page for **Helperr** - the on-demand task assistance platform that connects users with reliable helpers for everyday tasks.
+
+## About Helperr
+
+Helperr is a revolutionary platform designed to help people reclaim their time by connecting them with trusted neighbors and local helpers for various tasks. Whether you need help with:
+
+- 🛠️ **Quick fixes** (flat tire repair, minor repairs)
+- 🧹 **Daily chores** (cleaning, organization)
+- 📦 **Moving assistance** (furniture, heavy items)
+- ❄️ **Seasonal tasks** (snow removal, yard work)
+- 🏠 **Home maintenance** (assembly, installations)
+
+Helperr makes it easy to find reliable help instantly, allowing users to focus on what truly matters to them.
+
+## Project Features
+
+This landing page showcases:
+
+- **🎨 Modern Design**: Clean, professional interface with custom brand colors
+- **📱 Responsive Layout**: Mobile-first design that works on all devices
+- **🎠 Interactive Carousels**: Auto-scrolling hero and testimonial sections
+- **📝 Waitlist System**: Complete form validation with database storage and email notifications
+- **👥 Social Proof**: Customer testimonials and user count displays
+- **❓ FAQ Section**: Expandable accordion with common questions
+- **⚡ Performance Optimized**: Next.js Image optimization and fast loading
+- **🎯 Call-to-Actions**: Strategic placement of conversion elements
+
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- pnpm (recommended) or npm
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/myhelperr/landing_page.git
+cd landing_page
+
+# Install dependencies
+pnpm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
+
+# Set up the database
+pnpm db:push
+pnpm db:generate
+
+# Start development server
+pnpm dev
+```
+
+### Database Management
+```bash
+pnpm db:studio    # Open Prisma Studio
+pnpm db:reset     # Reset database
+pnpm db:migrate   # Run migrations
+```
 
 ## Design System & Colors
 
@@ -61,7 +122,7 @@ These custom colors have been integrated into the CSS variables system in `app/g
 
 The app supports automatic light/dark theme switching. All colors adapt automatically when the `.dark` class is applied to the root element.
 
-### Charts & Data Visualization
+<!-- ### Charts & Data Visualization
 
 Chart colors are mapped to the custom palette:
 - **chart-1**: Navy Blue
@@ -70,4 +131,4 @@ Chart colors are mapped to the custom palette:
 - **chart-4**: Dark Olive
 - **chart-5**: Medium Gray-Blue
 
-Use these for consistent data visualization that matches your brand.
+Use these for consistent data visualization that matches your brand. -->
