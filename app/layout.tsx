@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const nunito_sans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -36,8 +37,7 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: "https://myhelperr.com/",
     siteName: "Helperr - On-Demand Task Hailing",
-    title:
-      "Helperr - On-Demand Task Hailing",
+    title: "Helperr - On-Demand Task Hailing",
     description:
       "Helperr is an on-demand task-hailing platform that connects people who need immediate help with nearby helpers ready to lend a hand.",
     images: [
@@ -49,7 +49,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
 };
 
 export const viewport: Viewport = {
@@ -67,7 +66,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito_sans.variable} antialiased max-w-[90rem] mx-auto`}>{children}</body>
+      <body
+        className={`${nunito_sans.variable} antialiased max-w-[90rem] mx-auto`}
+      >
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

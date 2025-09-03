@@ -135,12 +135,13 @@ export default function Home(props: PropType) {
         </div>
       </section>
 
+      {/* How it works section */}
       <section id="about" className="w-[80%] mx-auto mb-12 space-y-10">
         <h1 className="text-center text-primary font-bold text-3xl md:text-4xl">
           How it works
         </h1>
         <div className="flex md:flex-row flex-col gap-10 items-center md:items-stretch justify-center">
-          <div className="how-it-works">
+          <div className="how-it-works bg-primary">
             <Image
               src={"/svg/timer.svg"}
               alt="Timer Icon"
@@ -151,7 +152,7 @@ export default function Home(props: PropType) {
             <h2>Post your task</h2>
             <p>Describe what you need</p>
           </div>
-          <div className="how-it-works">
+          <div className="how-it-works bg-ring">
             <Image
               src={"/svg/check-list.svg"}
               alt="Check List Icon"
@@ -162,7 +163,7 @@ export default function Home(props: PropType) {
             <h2>Get match instantly</h2>
             <p>Pick the right person for you </p>
           </div>
-          <div className="how-it-works">
+          <div className="how-it-works bg-secondary">
             <Image
               src={"/svg/toast.svg"}
               alt="Toast Icon"
@@ -174,11 +175,14 @@ export default function Home(props: PropType) {
             <p>Go do what you really want while we handle the boring stuff.</p>
           </div>
         </div>
-        <Link href={"waitlist"} className="flex justify-end">
-          <button className="bg-primary text-white py-3 px-6 rounded-full">
+        <div className="flex justify-end">
+          <Link
+            href={"waitlist"}
+            className="bg-primary text-white py-3 px-6 rounded-full hover:scale-105 active:scale-95 duration-200"
+          >
             Join our Waitlist
-          </button>
-        </Link>
+          </Link>
+        </div>
       </section>
 
       <section className="w-full mx-auto mb-12 py-8">
