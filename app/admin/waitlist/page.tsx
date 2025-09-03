@@ -1,8 +1,15 @@
 import { prisma } from "@/lib/prisma";
 import DownloadButton from "./DownloadButton";
 
+interface WaitlistEntry {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+}
+
 export default async function AdminWaitlist() {
-  const entries = await prisma.waitlistEntry.findMany({
+  const entries: WaitlistEntry[] = await prisma.waitlistEntry.findMany({
     orderBy: { createdAt: "desc" },
   });
 
