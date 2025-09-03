@@ -26,7 +26,7 @@ export default function Home(props: PropType) {
       stopOnInteraction: false,
       stopOnMouseEnter: false,
       stopOnFocusIn: false,
-      speed: 0.9,
+      speed: 0.5,
     }),
   ]);
 
@@ -37,7 +37,7 @@ export default function Home(props: PropType) {
       stopOnInteraction: false,
       stopOnMouseEnter: false,
       stopOnFocusIn: false,
-      speed: 0.9,
+      speed: 0.5,
     }),
   ]);
 
