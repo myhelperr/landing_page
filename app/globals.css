@@ -133,6 +133,10 @@
     @apply flex flex-col items-center w-full md:w-[450px] text-center text-white rounded-3xl px-8 py-12;
   }
 
+  .how-it-works-on-hover {
+    @apply text-white;
+  }
+
   .how-it-works h2 {
     @apply mt-6 text-xl;
   }
@@ -155,5 +159,18 @@
 
   .why-love-it-div > div > p {
     @apply text-gray-500 md:max-w-[90%];
+  }
+
+  /* Animation utilities using Tailwind classes */
+  .show {
+    @apply !opacity-100 !translate-x-0 !translate-y-0;
+  }
+
+  .from-bottom {
+    @apply opacity-0 translate-y-12 transition-all duration-700 ease-out;
+  }
+
+  .from-right {
+    @apply opacity-0 translate-x-12 transition-all duration-700 ease-out;
   }
 }

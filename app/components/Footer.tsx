@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex md:items-center md:col-span-3 md:order-2 order-1 md:justify-center">
           <div>
             <h3 className="md:max-w-[400px] px-6 md:text-2xl text-xl font-semibold text-gray-800 md:font-light md:text-left text-center">
-              Have more questions or feedback? We're here to help.
+              Have more questions or feedback? We&apos;re here to help.
             </h3>
 
             <div className="mt-4 flex md:flex-row flex-col items-center gap-4">

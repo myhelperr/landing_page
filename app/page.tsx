@@ -10,6 +10,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 import Navbar from "./components/Navbar";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
+import { useEffect, useRef } from "react";
 
 type PropType = {
   slides: number[];
@@ -17,10 +18,10 @@ type PropType = {
 };
 
 export default function Home(props: PropType) {
-  const { slides, options } = props;
+  const { options } = props;
 
   // Hero Section ref
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, ...options }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true, ...options }, [
     AutoScroll({
       playOnInit: true,
       stopOnInteraction: false,
@@ -40,6 +41,29 @@ export default function Home(props: PropType) {
       speed: 0.5,
     }),
   ]);
+
+  // intersection observer
+  const gridRefs = useRef<(HTMLDivElement | null | undefined)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    gridRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="">
@@ -152,7 +176,7 @@ export default function Home(props: PropType) {
             <h2>Post your task</h2>
             <p>Describe what you need</p>
           </div>
-          <div className="how-it-works bg-ring">
+          <div className="how-it-works hover:text-white duration-200 hover:bg-ring text-gray-700 border-4 hover:border-white border-gray-300">
             <Image
               src={"/svg/check-list.svg"}
               alt="Check List Icon"
@@ -163,7 +187,7 @@ export default function Home(props: PropType) {
             <h2>Get match instantly</h2>
             <p>Pick the right person for you </p>
           </div>
-          <div className="how-it-works bg-secondary">
+          <div className="how-it-works hover:text-white duration-200 hover:bg-secondary text-gray-700 border-4 hover:border-white border-gray-300">
             <Image
               src={"/svg/toast.svg"}
               alt="Toast Icon"
@@ -188,7 +212,13 @@ export default function Home(props: PropType) {
       <section className="w-full mx-auto mb-12 py-8">
         <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 md:h-[600px] h-[800px]">
           {/* First image - full width on mobile, left column on desktop */}
-          <div className="md:row-span-2 col-span-2 md:col-span-1 bg-gray-200 overflow-hidden">
+          <div
+            ref={(el) => {
+              gridRefs.current[0] = el;
+            }}
+            style={{ transitionDelay: "200ms" }}
+            className="from-bottom md:row-span-2 col-span-2 md:col-span-1 bg-gray-200 overflow-hidden"
+          >
             <Image
               src="/grid-1.jpg"
               alt="Grid Image 1"
@@ -200,7 +230,13 @@ export default function Home(props: PropType) {
           </div>
 
           {/* Second image - top right on mobile and desktop */}
-          <div className="bg-gray-200 overflow-hidden">
+          <div
+            ref={(el) => {
+              gridRefs.current[1] = el;
+            }}
+            style={{ transitionDelay: "300ms" }}
+            className="from-right bg-gray-200 overflow-hidden"
+          >
             <Image
               src="/grid-2.jpg"
               alt="Grid Image 2"
@@ -212,7 +248,13 @@ export default function Home(props: PropType) {
           </div>
 
           {/* Third image - spans full height on desktop, bottom right on mobile */}
-          <div className="md:row-span-2 bg-gray-200 overflow-hidden">
+          <div
+            ref={(el) => {
+              gridRefs.current[2] = el;
+            }}
+            style={{ transitionDelay: "400ms" }}
+            className="from-right md:row-span-2 bg-gray-200 overflow-hidden"
+          >
             <Image
               src="/grid-4.jpg"
               alt="Grid Image 3"
@@ -224,7 +266,13 @@ export default function Home(props: PropType) {
           </div>
 
           {/* Fourth image - middle column bottom on desktop, full width bottom on mobile */}
-          <div className="col-span-2 md:col-span-1 bg-gray-200 overflow-hidden">
+          <div
+            ref={(el) => {
+              gridRefs.current[3] = el;
+            }}
+            style={{ transitionDelay: "500ms" }}
+            className="from-bottom col-span-2 md:col-span-1 bg-gray-200 overflow-hidden"
+          >
             <Image
               src="/grid-3.jpg"
               alt="Grid Image 4"
@@ -281,7 +329,7 @@ export default function Home(props: PropType) {
 
         <div className="md:w-[45%] w-full space-y-9">
           <h1 className="text-3xl md:text-4xl md:text-left text-center font-bold mb-12 text-primary">
-            Why You'll Love It?
+            Why You&apos;ll Love It?
           </h1>
 
           <div className="why-love-it-div">
@@ -314,8 +362,8 @@ export default function Home(props: PropType) {
               {" "}
               <h3>Always Ready:</h3>
               <p>
-                Tap once and match instantly with reliable neighbours who'll
-                finish your task to your standards.
+                Tap once and match instantly with reliable neighbours
+                who&apos;ll finish your task to your standards.
               </p>
             </div>
           </div>
