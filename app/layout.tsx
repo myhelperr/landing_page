@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito_sans.variable} antialiased max-w-[90rem] mx-auto`}
+        className={`${nunito_sans.variable} antialiased max-w-[100rem] mx-auto`}
       >
         {children}
         <Toaster />

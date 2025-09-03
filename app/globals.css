@@ -167,10 +167,10 @@
   }
 
   .from-bottom {
-    @apply opacity-0 translate-y-12 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-y-[50%] transition-all duration-700 ease-out;
   }
 
   .from-right {
-    @apply opacity-0 translate-x-12 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-x-[50%] transition-all duration-700 ease-out;
   }
 }

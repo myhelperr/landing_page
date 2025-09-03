@@ -51,7 +51,8 @@ export default function Home(props: PropType) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove("show");
           }
         });
       },
@@ -68,8 +69,8 @@ export default function Home(props: PropType) {
   return (
     <main className="">
       <Navbar />
-      <section className="bg-primary text-primary-foreground flex md:flex-row flex-col justify-between items-center gap-6 py-8 md:px-16 px-6 mb-12">
-        <div className="md:w-1/2 w-full space-y-6 mb-6 md:mb-0">
+      <section className="bg-primary text-primary-foreground flex md:flex-row flex-col justify-between items-center gap-6 py-8 md:px-16 mb-12">
+        <div className="md:w-1/2 w-full space-y-6 mb-6 md:mb-0 px-6">
           <h1 className="text-5xl/14 font-bold md:text-left text-center max-w-[500px]">
             Reclaim your weekend with Helperr
           </h1>
@@ -234,7 +235,7 @@ export default function Home(props: PropType) {
             ref={(el) => {
               gridRefs.current[1] = el;
             }}
-            style={{ transitionDelay: "300ms" }}
+            style={{ transitionDelay: "250ms" }}
             className="from-right bg-gray-200 overflow-hidden"
           >
             <Image
@@ -252,7 +253,7 @@ export default function Home(props: PropType) {
             ref={(el) => {
               gridRefs.current[2] = el;
             }}
-            style={{ transitionDelay: "400ms" }}
+            style={{ transitionDelay: "300ms" }}
             className="from-right md:row-span-2 bg-gray-200 overflow-hidden"
           >
             <Image
@@ -270,7 +271,7 @@ export default function Home(props: PropType) {
             ref={(el) => {
               gridRefs.current[3] = el;
             }}
-            style={{ transitionDelay: "500ms" }}
+            style={{ transitionDelay: "350ms" }}
             className="from-bottom col-span-2 md:col-span-1 bg-gray-200 overflow-hidden"
           >
             <Image

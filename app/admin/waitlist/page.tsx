@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import DownloadButton from "./DownloadButton";
+import AdminAuth from "./AdminAuth";
 
 interface WaitlistEntry {
   id: string;
@@ -14,13 +15,14 @@ export default async function AdminWaitlist() {
   });
 
   return (
-    <main className="py-8 md:px-16 px-6 bg-gradient-to-br from-primary/5 to-secondary/5 min-h-screen">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-primary">
-          Waitlist ({entries.length})
-        </h1>
-        {entries.length > 0 && <DownloadButton entries={entries} />}
-      </div>
+    <AdminAuth>
+      <main className="py-8 md:px-16 px-6 bg-gradient-to-br from-primary/5 to-secondary/5 min-h-screen">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-primary">
+            Waitlist ({entries.length})
+          </h1>
+          {entries.length > 0 && <DownloadButton entries={entries} />}
+        </div>
 
       <div className="space-y-4">
         {entries.map((entry) => (
@@ -51,5 +53,6 @@ export default async function AdminWaitlist() {
         )}
       </div>
     </main>
+    </AdminAuth>
   );
 }
