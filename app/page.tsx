@@ -10,7 +10,7 @@ import AutoScroll from "embla-carousel-auto-scroll";
 import Navbar from "./components/Navbar";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type PropType = {
   slides: number[];
@@ -44,6 +44,11 @@ export default function Home(props: PropType) {
 
   // intersection observer
   const gridRefs = useRef<(HTMLDivElement | null | undefined)[]>([]);
+
+  // Hover states for icons
+  const [isTimerHovered, setIsTimerHovered] = useState(false);
+  const [isCheckListHovered, setIsCheckListHovered] = useState(false);
+  const [isToastHovered, setIsToastHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -107,10 +112,10 @@ export default function Home(props: PropType) {
         <div className="md:w-1/2 w-full flex items-center justify-center">
           <div className="relative">
             {/* Left shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-primary to-transparent z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-primary to-transparent z-10"></div>
 
             {/* Right shadow */}
-            <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-primary to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-primary to-transparent z-10"></div>
 
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
@@ -166,33 +171,45 @@ export default function Home(props: PropType) {
           How it works
         </h1>
         <div className="flex md:flex-row flex-col gap-10 items-center md:items-stretch justify-center">
-          <div className="how-it-works bg-primary">
+          <div 
+            className="how-it-works hover:text-gray-700 hover:bg-white duration-200 bg-primary hover:border-gray-300 border-transparent border-4"
+            onMouseEnter={() => setIsTimerHovered(true)}
+            onMouseLeave={() => setIsTimerHovered(false)}
+          >
             <Image
-              src={"/svg/timer.svg"}
+              src={isTimerHovered ? "/svg/timer-dark.svg" : "/svg/timer.svg"}
               alt="Timer Icon"
-              width={100}
+              width={70}
               height={100}
               priority
             />
             <h2>Post your task</h2>
             <p>Describe what you need</p>
           </div>
-          <div className="how-it-works hover:text-white duration-200 hover:bg-ring text-gray-700 border-4 hover:border-white border-gray-300">
+          <div 
+            className="how-it-works hover:text-white duration-200 hover:bg-ring text-gray-700 border-4 hover:border-white border-gray-300"
+            onMouseEnter={() => setIsCheckListHovered(true)}
+            onMouseLeave={() => setIsCheckListHovered(false)}
+          >
             <Image
-              src={"/svg/check-list.svg"}
+              src={isCheckListHovered ? "/svg/check-list.svg" : "/svg/check-list-dark.svg"}
               alt="Check List Icon"
-              width={100}
+              width={70}
               height={100}
               priority
             />
             <h2>Get match instantly</h2>
             <p>Pick the right person for you </p>
           </div>
-          <div className="how-it-works hover:text-white duration-200 hover:bg-secondary text-gray-700 border-4 hover:border-white border-gray-300">
+          <div 
+            className="how-it-works hover:text-white duration-200 hover:bg-secondary text-gray-700 border-4 hover:border-white border-gray-300"
+            onMouseEnter={() => setIsToastHovered(true)}
+            onMouseLeave={() => setIsToastHovered(false)}
+          >
             <Image
-              src={"/svg/toast.svg"}
+              src={isToastHovered ? "/svg/toast.svg" : "/svg/toast-dark.svg"}
               alt="Toast Icon"
-              width={100}
+              width={70}
               height={100}
               priority
             />
@@ -210,8 +227,8 @@ export default function Home(props: PropType) {
         </div>
       </section>
 
-      <section className="w-full mx-auto mb-12 py-8">
-        <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 md:h-[600px] h-[800px]">
+      <section className="w-full mx-auto mb-12 py-8 overflow-hidden">
+        <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 md:h-[600px] h-[800px] overflow-hidden">
           {/* First image - full width on mobile, left column on desktop */}
           <div
             ref={(el) => {
@@ -225,7 +242,7 @@ export default function Home(props: PropType) {
               alt="Grid Image 1"
               width={400}
               height={600}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[50%_20%]"
               priority
             />
           </div>
@@ -290,7 +307,7 @@ export default function Home(props: PropType) {
         id="solutions"
         className="w-full px-6 mx-auto md:px-16 mb-12 flex gap-6 items-center"
       >
-        <div className="hidden md:grid grid-cols-2 grid-rows-3 gap-5 md:w-[55%] w-full">
+        <div className="hidden md:grid grid-cols-2 grid-rows-3 gap-5 md:w-[55%] w-full md:h-[500px]">
           {/* First image - spans entire first column (all 3 rows) */}
           <div className="row-span-3 bg-gray-200 rounded-xl overflow-hidden">
             <Image
@@ -372,7 +389,7 @@ export default function Home(props: PropType) {
       </section>
 
       {/* Testimonials */}
-      <section className="w-full bg-black mb-12 md:px-16 px-6 py-8">
+      <section className="w-full bg-black mb-12 md:px-16 px-6 py-20 md:py-36">
         <h1 className="text-center font-bold text-3xl md:text-4xl text-white">
           Trusted by your Neighbours
         </h1>

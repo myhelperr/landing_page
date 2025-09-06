@@ -24,11 +24,11 @@ const faqs = [
     question: "How are helpers vetted?",
     answer: "All helpers go through background checks and skill verification. Plus, our rating system ensures you always get quality service from trusted neighbors."
   },
-  {
-    id: "item-4",
-    question: "What are the costs?",
-    answer: "Pricing varies by task complexity and duration. You'll see transparent pricing upfront before confirming any helper, with no hidden fees."
-  },
+  // {
+  //   id: "item-4",
+  //   question: "What are the costs?",
+  //   answer: "Pricing varies by task complexity and duration. You'll see transparent pricing upfront before confirming any helper, with no hidden fees."
+  // },
   {
     id: "item-5",
     question: "Is Helperr available in my area?",
@@ -38,17 +38,17 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faqs" className="md:w-[90%] max-w-4xl mx-auto mb-2 px-6">
+    <section id="faqs" className="md:w-[90%] max-w-4xl mx-auto mb-12 px-6 py-16 md:py-36">
       <h1 className="text-center font-bold text-3xl md:text-4xl text-primary mb-12">
         Frequently Asked Questions
       </h1>
       
-      <Accordion type="single" collapsible className="space-y-4">
+      <Accordion type="single" collapsible className="py-4">
         {faqs.map((faq) => (
           <AccordionItem 
             key={faq.id} 
             value={faq.id}
-            className="border border-gray-200 rounded-lg px-6 py-2 hover:bg-gray-50 transition-colors"
+            className="border border-gray-200 rounded-lg px-6 py-2 mb-4 hover:bg-gray-50 transition-colors last:border-b"
           >
             <AccordionTrigger className="text-left text-lg font-semibold text-gray-800 hover:text-primary group cursor-pointer">
               <span className="flex-1">{faq.question}</span>

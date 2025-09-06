@@ -4,14 +4,14 @@ import MobileNav from "./MobileNav";
 
 export default function Navbar() {
   return (
-    <nav className="z-50 bg-white flex w-full justify-between py-8 md:px-16 px-6 shadow sticky top-0 right-0 left-0">
+    <nav className="z-50 bg-white flex w-full items-center justify-between py-8 md:px-16 px-6 shadow sticky top-0 right-0 left-0">
       <div>
         <Image
           priority
           src="/logo.svg"
           alt="Helperr Logo"
-          width={100}
-          height={100}
+          width={130}
+          height={130}
         />
       </div>
 

@@ -96,7 +96,7 @@ export default function Footer() {
           <Image
             src="/footer.jpg"
             alt="Footer Image"
-            width={500}
+            width={1000}
             height={200}
             className="w-full h-full object-cover brightness-110 contrast-105"
             priority
