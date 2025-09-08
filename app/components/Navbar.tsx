@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 
 export default function Navbar() {
   return (
-    <nav className="z-50 bg-white flex w-full items-center justify-between py-8 md:px-16 px-6 shadow sticky top-0 right-0 left-0">
+    <nav className="z-50 bg-white flex w-full items-center justify-between py-6 md:py-8 md:px-16 px-6 shadow sticky top-0 right-0 left-0">
       <div>
         <Image
           priority

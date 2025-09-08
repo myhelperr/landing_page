@@ -19,7 +19,7 @@ export async function sendThankYouEmail(name: string, email: string) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
           <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <div style="text-align: center; margin-bottom: 30px;">
-              <img src="https://res.cloudinary.com/dpesanzkk/image/upload/v1756880587/helperr-logo_y9x9qn.jpg" 
+              <img src="https://res.cloudinary.com/dpesanzkk/image/upload/v1757285362/my-helperr-1_xxjt9m.jpg" 
                    alt="Helperr Logo" 
                    style="max-width: 120px; height: auto; border-radius: 8px;">
             </div>
@@ -32,11 +32,11 @@ export async function sendThankYouEmail(name: string, email: string) {
             
             <p style="font-size: 16px; line-height: 1.6; color: #333;">We'll keep you updated on our progress and let you know as soon as we're ready to launch.</p>
             
-            <div style="text-align: center; margin: 30px 0;">
-              <div style="background-color: #6666ff; color: white; padding: 15px; border-radius: 8px; font-weight: bold;">
-                🎉 Welcome to the Helperr Community! 🎉
-              </div>
-            </div>
+            // <div style="text-align: center; margin: 30px 0;">
+            //   <div style="background-color: #6666ff; color: white; padding: 15px; border-radius: 8px; font-weight: bold;">
+            //     🎉 Welcome to the Helperr Community! 🎉
+            //   </div>
+            // </div>
             
             <p style="margin-top: 30px; font-size: 16px; line-height: 1.6; color: #333;">
               Best regards,<br>
