@@ -74,8 +74,8 @@ export default function Home(props: PropType) {
   return (
     <main className="">
       <Navbar />
-      <section className="bg-primary text-primary-foreground flex md:flex-row flex-col justify-between items-center gap-6 py-8 md:px-16 mb-12">
-        <div className="md:w-1/2 w-full space-y-6 mb-6 md:mb-0 px-6">
+      <section className="bg-primary text-primary-foreground flex md:flex-row flex-col justify-between items-center gap-6 mb-12">
+        <div className="md:w-1/2 w-full space-y-6 mb-6 md:mb-0 px-6 py-8 md:px-16">
           <h1 className="text-5xl/14 font-bold md:text-left text-center max-w-[500px]">
             Reclaim your weekend with Helperr
           </h1>
@@ -109,13 +109,13 @@ export default function Home(props: PropType) {
             <h1 className="md:max-w-[100px]">Trusted by 1,200+ users</h1>
           </div>
         </div>
-        <div className="md:w-1/2 w-full flex items-center justify-center">
+        <div className="md:w-1/2 w-full flex items-center justify-center py-8">
           <div className="relative">
             {/* Left shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-primary to-transparent z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-2 md:w-20 bg-gradient-to-r from-primary to-transparent z-10"></div>
 
             {/* Right shadow */}
-            <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-l from-primary to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-2 md:w-0 bg-gradient-to-l from-primary to-transparent z-10"></div>
 
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
