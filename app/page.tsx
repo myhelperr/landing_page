@@ -166,7 +166,7 @@ export default function Home(props: PropType) {
       </section>
 
       {/* How it works section */}
-      <section id="about" className="w-[80%] mx-auto mb-12 space-y-10">
+      <section id="about" className="w-[80%] mx-auto mb-12 space-y-10 my-16 md:my-26 ">
         <h1 className="text-center text-primary font-bold text-3xl md:text-4xl">
           How it works
         </h1>
@@ -305,7 +305,7 @@ export default function Home(props: PropType) {
 
       <section
         id="solutions"
-        className="w-full px-6 mx-auto md:px-16 mb-12 flex gap-6 items-center"
+        className="w-full px-6 mx-auto md:px-16 mb-12 flex gap-6 items-center my-16 md:my-26"
       >
         <div className="hidden md:grid grid-cols-2 grid-rows-3 gap-5 md:w-[55%] w-full md:h-[500px]">
           {/* First image - spans entire first column (all 3 rows) */}
@@ -430,11 +430,11 @@ export default function Home(props: PropType) {
       <FAQSection />
 
       {/* CTA */}
-      <section className="w-full py-24 px-6 md:px-16 text-center bg-secondary">
+      <section className="w-full py-30 md:py-40 px-6 md:px-16 text-center bg-secondary">
         <div className="flex justify-center">
           <Link
             href="/waitlist"
-            className="group text-xl md:text-3xl text-white  relative inline-flex items-center gap-3 bg-ring font-semibold px-6 md:px-14 py-3 md:py-6 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-ring/50"
+            className="group text-2xl md:text-3xl text-white relative inline-flex items-center gap-3 bg-ring font-semibold px-8 md:px-14 py-4 md:py-6 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-ring/50"
           >
             Join our Waitlist
             <Image
