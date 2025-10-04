@@ -45,7 +45,6 @@ export default function Waitlist() {
         });
         reset();
       } else {
-        console.error("Error submitting form", result);
         toast.error(result.message, {
           icon: "❌",
           duration: 4000,
