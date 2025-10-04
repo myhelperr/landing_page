@@ -1,8 +1,9 @@
-"use server";
+'use server';
 
 import prisma from "@/lib/prisma";
 import { sendThankYouEmail } from "@/lib/email";
 
+// Server Action - ensure proper export
 export async function addToWaitlist(data: { name: string; email: string }) {
   try {
     await prisma.waitlistEntry.create({
@@ -23,7 +24,7 @@ export async function addToWaitlist(data: { name: string; email: string }) {
   } catch (error: unknown) {
     console.error("Error adding to waitlist:", error);
     if (error && typeof error === 'object' && 'code' in error && error.code === "P2002") {
-      
+
       return {
         success: false,
         message: "Email has already been added to the waitlist",
