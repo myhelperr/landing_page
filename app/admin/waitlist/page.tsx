@@ -9,10 +9,21 @@ interface WaitlistEntry {
   createdAt: Date;
 }
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function AdminWaitlist() {
-  const entries: WaitlistEntry[] = await prisma.waitlistEntry.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let entries: WaitlistEntry[] = [];
+  let error: string | null = null;
+
+  try {
+    entries = await prisma.waitlistEntry.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (e) {
+    console.error("Error fetching waitlist entries:", e);
+    error = e instanceof Error ? e.message : "Failed to fetch waitlist entries";
+  }
 
   return (
     <AdminAuth>
@@ -23,6 +34,13 @@ export default async function AdminWaitlist() {
           </h1>
           {entries.length > 0 && <DownloadButton entries={entries} />}
         </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg mb-4">
+            <p className="font-semibold">Error loading waitlist:</p>
+            <p className="text-sm">{error}</p>
+          </div>
+        )}
 
       <div className="space-y-4">
         {entries.map((entry) => (
