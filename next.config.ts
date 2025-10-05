@@ -7,8 +7,10 @@ const nextConfig: NextConfig = {
       allowedOrigins: ['*'],
     },
   },
-  // Ensure proper server actions handling
+  // Ensure proper server actions handling for Amplify
   outputFileTracing: true,
+  // Use standalone output for better AWS compatibility
+  output: 'standalone',
 };
 
 export default nextConfig;
