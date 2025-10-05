@@ -12,16 +12,9 @@ import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import { useEffect, useRef, useState } from "react";
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
-
-export default function Home(props: PropType) {
-  const { options } = props;
-
+export default function Home() {
   // Hero Section ref
-  const [emblaRef] = useEmblaCarousel({ loop: true, ...options }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({
       playOnInit: true,
       stopOnInteraction: false,
@@ -32,7 +25,7 @@ export default function Home(props: PropType) {
   ]);
 
   //  Testimonial ref
-  const [testimonialRef] = useEmblaCarousel({ loop: true, ...options }, [
+  const [testimonialRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({
       playOnInit: true,
       stopOnInteraction: false,
